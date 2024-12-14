@@ -1,0 +1,29 @@
+.card {
+    list-style-type: none;
+    position: relative;
+    width: 400px;
+}
+
+.card img {
+    width: 400px
+}
+
+.card .infos {
+    opacity: 0;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    color: white;
+    width: 400px;
+    height: 600px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    text-align: center;
+
+
+}
+
+.card .infos:hover {
+    opacity: 1;
+
+}
