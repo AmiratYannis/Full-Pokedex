@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Pokemon from "../component/Pokemon";
+import PokemonCard from "./PokemonCard";
+import { Link } from "react-router-dom";
 import "../style/pokemons.css"
 
 
@@ -16,12 +17,14 @@ const Pokemons = () => {
 
     return (
         <div className='pokemons'>
-            <h1>Pokemons</h1>
+            <h1>Pokémons</h1>
             <ul className="pokemonList">
                 {
                     pokemons.map((pokemon, index) =>
                     (
-                        <Pokemon key={index} pokemon={pokemon} />
+                        <Link to={`/pokemon/${pokemon.id}`}>
+                            <PokemonCard key={index} pokemon={pokemon} />
+                        </Link>
                     )
 
                     )

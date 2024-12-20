@@ -113,3 +113,13 @@ svg #heart {
 svg #main-circ {
     transform-origin: 29.5px 29.5px;
 }
+
+.header__top .header__search{
+    width: 500px;
+    height:60px
+}
+
+.header__top .header__search .icon-search {
+    width: 20%;
+    height: 100%;
+}

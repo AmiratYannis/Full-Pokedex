@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../style/header.css"
+import "../style/header.css";
+import "../"
 
 const Header = ({ sendPokemonsToParent }) => {
     const [searchValue, setSearchValue] = useState("");
@@ -13,9 +14,16 @@ const Header = ({ sendPokemonsToParent }) => {
 
     const search = (e) => {
         e.preventDefault();
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${searchValue}`)
-            .then((res) => sendPokemonsToParent(res.data))
 
+       // if (!searchValue) return;
+
+
+
+        axios.get(`https://pokebuildapi.fr/api/v1/pokemon/${searchValue}`)
+            .then((res) => sendPokemonsToParent(res.data))
+            .catch((err) => {
+                console.error("Pokemon not found. Please try again")
+            })
 
     }
 
@@ -29,7 +37,7 @@ const Header = ({ sendPokemonsToParent }) => {
             <div className="header__right">
                 <div className="header__top">
                     <div className="header__search">
-                        <input type="text" placeholder="Recherche" value={searchValue} onChange={handleSearchInputChanges} />
+                        <input type="text" placeholder="Rechercher un Pokémon à afficher au dessus du pokédex" value={searchValue} onChange={handleSearchInputChanges} />
 
                         <svg className="icon icon-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" onClick={search}>
                             <circle cx="11" cy="11" r="8"></circle>
