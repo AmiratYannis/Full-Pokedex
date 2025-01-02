@@ -10,9 +10,17 @@ const Pokemons = () => {
 
 
     useEffect(() => {
-        axios.get("https://pokebuildapi.fr/api/v1/pokemon")
-            .then((res) => setPokemons(res.data))
-    })
+        const cachedData = localStorage.getItem("pokemons");
+        if (cachedData) {
+            setPokemons(JSON.parse(cachedData));
+        } else {
+            axios.get("https://pokebuildapi.fr/api/v1/pokemon")
+                .then((res) => {
+                    setPokemons(res.data);
+                    localStorage.setItem("pokemons", JSON.stringify(res.data));
+                });
+        }
+    }, []);
 
 
     return (

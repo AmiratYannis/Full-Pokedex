@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom"
 import "../style/header.css";
 
 const Header = ({ sendPokemonsToParent, IsHomePage }) => {
@@ -29,9 +30,9 @@ const Header = ({ sendPokemonsToParent, IsHomePage }) => {
     return (
         <header className="header">
             <div className="header__logo">
-                <a href="/">
+                <Link to="/">
                     <img className="js lg:tw-mx-auto lazyautosizes lazyloaded" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/800px-International_Pok%C3%A9mon_logo.svg.png" />
-                </a>
+                </Link>
             </div>
             {IsHomePage && (
                 <div className="header__right">
@@ -48,7 +49,7 @@ const Header = ({ sendPokemonsToParent, IsHomePage }) => {
                 </div>
 
             )}
-            
+
         </header >
     );
 }

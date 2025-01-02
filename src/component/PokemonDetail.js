@@ -11,17 +11,25 @@ const PokemonDetail = () => {
     const [loading, setLoading] = useState(true); // To handle loading state
 
     useEffect(() => {
-        console.log(id)
-        axios.get(`https://pokebuildapi.fr/api/v1/pokemon/${id}`)
-            .then((res) => {
-                console.log(res.data)
-                setPokemon(res.data)
-                setLoading(false)})
-            .catch((err) => {
-                console.error("Error fetching Pokémon details:", err)
-                setLoading(false)
-            })
+        const cachedData = localStorage.getItem(`pokemon:${id}`)
+        if (cachedData) {
+            setPokemon(JSON.parse(cachedData))
+            setLoading(false)
+        } else {
+            axios.get(`https://pokebuildapi.fr/api/v1/pokemon/${id}`)
+                .then((res) => {
+                    setPokemon(res.data)
+                    setLoading(false)
+                    localStorage.setItem(`pokemon:${id}`, JSON.stringify(res.data))
+                })
+                .catch((err) => {
+                    console.error("Error fetching Pokémon details:", err)
+                    setLoading(false)
+                })
+        }
     }, [id])
+
+
 
     // Show loading spinner while data is being fetched
     if (loading) {
@@ -41,7 +49,7 @@ const PokemonDetail = () => {
 
     return (
         <>
-            <Header IsHomePage={false}/>
+            <Header IsHomePage={false} />
             <div className='pokemon-detail container'>
 
                 <div className="card horizontal z-depth-2">
@@ -76,7 +84,7 @@ const PokemonDetail = () => {
                 </div>
             </div>
         </>
-        
+
 
 
 
