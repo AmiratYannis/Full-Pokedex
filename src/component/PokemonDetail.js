@@ -2,7 +2,8 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import "../style/pokemonDetail.css"
+import "../style/pokemonDetail.css";
+import Header from './Header';
 
 const PokemonDetail = () => {
     const { id } = useParams()
@@ -39,39 +40,43 @@ const PokemonDetail = () => {
     }
 
     return (
-        
-        <div className='pokemon-detail container'>
-            <div className="card horizontal z-depth-2">
-                <div className="card-image">
-                    <img src={pokemon.image} alt={pokemon.name} />
-                </div>
-                <div className="card-stacked">
-                    <div className="card-content">
-                        <h5>N° {pokemon.id}</h5>
-                        <h4 className="card-title">{pokemon.name}</h4>
-                        <div className="chip-container">
-                            {pokemon.apiTypes.map((type, index) => (
-                                <div key={index} className={`chip ${type.name.toLowerCase()}`}>
-                                    <img src={type.image} alt={type.name} />
-                                    {type.name}
-                                </div>
-                            ))}
+        <>
+            <Header IsHomePage={false}/>
+            <div className='pokemon-detail container'>
+
+                <div className="card horizontal z-depth-2">
+                    <div className="card-image">
+                        <img src={pokemon.image} alt={pokemon.name} />
+                    </div>
+                    <div className="card-stacked">
+                        <div className="card-content">
+                            <h5>N° {pokemon.id}</h5>
+                            <h4 className="card-title">{pokemon.name}</h4>
+                            <div className="chip-container">
+                                {pokemon.apiTypes.map((type, index) => (
+                                    <div key={index} className={`chip ${type.name.toLowerCase()}`}>
+                                        <img src={type.image} alt={type.name} />
+                                        {type.name}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div className="section">
+                    <h5>Statistiques de base</h5>
+                    <ul className="collection">
+                        <li className="collection-item"><strong>PV:</strong> {pokemon.stats.HP}</li>
+                        <li className="collection-item"><strong>Attaque:</strong> {pokemon.stats.attack}</li>
+                        <li className="collection-item"><strong>Défense:</strong> {pokemon.stats.defense}</li>
+                        <li className="collection-item"><strong>Attaque Spécial:</strong> {pokemon.stats.special_attack}</li>
+                        <li className="collection-item"><strong>Défense Spécial:</strong> {pokemon.stats.special_defense}</li>
+                        <li className="collection-item"><strong>Vitesse:</strong> {pokemon.stats.speed}</li>
+                    </ul>
+                </div>
             </div>
-            <div className="section">
-                <h5>Statistiques de base</h5>
-                <ul className="collection">
-                    <li className="collection-item"><strong>PV:</strong> {pokemon.stats.HP}</li>
-                    <li className="collection-item"><strong>Attaque:</strong> {pokemon.stats.attack}</li>
-                    <li className="collection-item"><strong>Défense:</strong> {pokemon.stats.defense}</li>
-                    <li className="collection-item"><strong>Attaque Spécial:</strong> {pokemon.stats.special_attack}</li>
-                    <li className="collection-item"><strong>Défense Spécial:</strong> {pokemon.stats.special_defense}</li>
-                    <li className="collection-item"><strong>Vitesse:</strong> {pokemon.stats.speed}</li>
-                </ul>
-            </div>
-        </div>
+        </>
+        
 
 
 
