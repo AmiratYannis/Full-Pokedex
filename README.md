@@ -9,26 +9,48 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### Docker
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To run container for front-end and back-end by using Docker, you should first [install Docker](https://docs.docker.com/get-docker/). 
 
-### `npm test`
+Once Docker is installed, you can run all the container at the same time by using this following command at the root of the projet: 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+docker build -t pokedex:latest .
+docker run -p 3050:3050 pokedex:latest
 
-### `npm run build`
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+
+### Node jS, NPM
+
+Pokedex is developped with React and runs with Node.js. [Install Node.js](https://nodejs.org/en/) on your environment.
+
+Once Node.js is installed, install npm dependencies
+
+```
+npm install
+```
+To run this project with npm, you should run this following command: 
+
+
+```
+npm start
+```
+
+## Compiles and minifies for production
+
+To build project for production, you have to use the following command: 
+
+```
+npm run build
+
+``` 
+
+
+
 
 
 

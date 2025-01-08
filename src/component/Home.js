@@ -18,10 +18,14 @@ const Home = () => {
         <div className="main">
             <Header sendPokemonsToParent={handlePokemonFromChild} IsHomePage={true} />
             {pokemon !== null && pokemon !== "" && typeof pokemon === "object" && !Array.isArray(pokemon) ? (
+                <>
 
-                <Link to={`/pokemon/${pokemon.id}`}>
-                    <PokemonCard pokemon={pokemon} />
-                </Link>
+                    <Link to={`/pokemon/${pokemon.id}`}>
+                        <PokemonCard pokemon={pokemon} />
+                    </Link>
+
+                    <Pokemons />
+                </>
 
 
             ) : (
