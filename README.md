@@ -1,5 +1,8 @@
+# Pokedex
 
-
+This is a website to consult the pokedex which is a list of all pokemons existing. 
+You can consult a pokemon stats by clicking on a card or by searching this pokemon with search bar on the top. 
+You can return on the pokedex by clicking on logo in the top left of the website. 
 
 # Getting Started with Create React App
 
