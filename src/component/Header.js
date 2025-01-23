@@ -41,15 +41,7 @@ const Header = ({ sendPokemonsToParent, IsHomePage }) => {
     const search = (e) => {
         e.preventDefault();
 
-        // if (!searchValue) return;
-
-
-
-       /* axios.get(`https://pokebuildapi.fr/api/v1/pokemon/${searchValue}`)
-            .then((res) => sendPokemonsToParent(res.data))
-            .catch((err) => {
-                console.error("Pokemon not found. Please try again")
-            })*/
+       
 
         // Find the Pokémon directly from the loaded list
         const selectedPokemon = pokemons.find(
