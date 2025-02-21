@@ -26,10 +26,9 @@
     flex-grow: 1;
     position: relative;
     overflow: visible
-
-
-
 }
+
+
 
 .header__search input {
     border: none;
@@ -171,4 +170,43 @@ svg #main-circ {
 .autocomplete-suggestions li:hover {
     background-color: #f9f9f9;
     /* Highlight on hover */
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+   
+
+    .header__search {
+        width: 90%;
+        margin-top: 10px;
+    }
+}
+
+/* Smartphones (Portrait) */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    
+
+    .header__search {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .header__search input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .header__search svg {
+        padding: 8px;
+    }
 }
