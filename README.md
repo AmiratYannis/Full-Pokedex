@@ -1,23 +1,20 @@
-# Pokedex
+# Demo
+
+You can consult my pokédex app in this link: https://pokedex.yamirat.com/ 
+
+# Pokédex
 
 This is a website to consult the pokedex which is a list of all pokemons existing. 
 You can consult a pokemon stats by clicking on a card or by searching this pokemon with search bar on the top. 
 You can return on the pokedex by clicking on logo in the top left of the website. 
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+I developped this website in React and deployed with AWS S3 and Cloud-Front
 
 ### Docker
 
 
 To run container for front-end and back-end by using Docker, you should first [install Docker](https://docs.docker.com/get-docker/). 
 
-Once Docker is installed, you can run all the container at the same time by using this following command at the root of the projet: 
+Once Docker is installed, you can run the container by using this following command at the root of the projet: 
 
 ```
 docker build -t pokedex:latest .
